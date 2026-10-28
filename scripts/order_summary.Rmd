@@ -1,0 +1,184 @@
+---
+title: "Documenting order_summary.R"
+subtitle: "Toronto Cakes Order Analysis (Synthetic Data)"
+author: "May Elmady"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+    highlight: tango
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+knitr::opts_knit$set(root.dir = "..")  # run chunks from the project root
+```
+
+> **AI Assistance Declaration:** I used Claude (Anthropic, Opus 5.5, 26 Oct 2026) for R Markdown formatting suggestions, section organization and code-chunk layout. Prompts used: see `docs/Appendix_AI_Prompts.md`. I verified outputs by knitting this file in RStudio/Posit Cloud and cross-checking the summary totals in Google Sheets. All final calculations are done by myself. I am responsible for the accuracy and originality of this work.
+
+# Purpose
+
+`scripts/order_summary.R` summarises custom-cake orders for **Toronto Cakes**, a home-based cake business that takes most orders through Instagram DMs. The script answers three business questions:
+
+1. Which order type (Birthday, Wedding, Baby Shower, Other) brings in the most revenue?
+2. How far in advance do customers order each type of cake?
+3. How do order counts and revenue change from month to month?
+
+All data in this project is **synthetic** and contains no real customer information.
+
+# Inputs
+
+## Data file
+
+| Item     | Value                              |
+|----------|------------------------------------|
+| File     | `data/cake_orders_synthetic.csv`   |
+| Rows     | 20 orders (January – May 2026)     |
+| Format   | Comma-separated, header row        |
+
+## Columns
+
+| Column         | Type      | Description                                        |
+|----------------|-----------|----------------------------------------------------|
+| `order_id`     | character | Unique order code (e.g., `TC001`)                  |
+| `order_date`   | date      | Date the customer confirmed the order              |
+| `pickup_date`  | date      | Date the cake is picked up or delivered            |
+| `order_type`   | character | Birthday, Wedding, Baby Shower, or Other           |
+| `cake_flavour` | character | Main flavour of the cake                           |
+| `tiers`        | integer   | Number of tiers                                    |
+| `servings`     | integer   | Number of guest servings                           |
+| `price_cad`    | numeric   | Final price in Canadian dollars                    |
+| `channel`      | character | How the order arrived (Instagram DM, Story Reply, Website Form) |
+
+## Packages
+
+```{r packages}
+library(readr)
+library(dplyr)
+library(lubridate)
+library(ggplot2)
+```
+
+# Processing Steps
+
+## Step 1: Load the data
+
+Column types are declared explicitly so dates are parsed as dates and prices as numbers.
+
+```{r load-data}
+orders <- read_csv(
+  "data/cake_orders_synthetic.csv",
+  col_types = cols(
+    order_date  = col_date(),
+    pickup_date = col_date(),
+    tiers       = col_integer(),
+    servings    = col_integer(),
+    price_cad   = col_double(),
+    .default    = col_character()
+  )
+)
+
+glimpse(orders)
+```
+
+## Step 2: Add helper columns
+
+- `lead_time_days`: days between ordering and pickup
+- `price_per_serve`: price divided by servings
+- `order_month`: order date rounded down to the first of the month
+
+```{r helper-columns}
+orders <- orders %>%
+  mutate(
+    lead_time_days  = as.integer(pickup_date - order_date),
+    price_per_serve = price_cad / servings,
+    order_month     = floor_date(order_date, unit = "month")
+  )
+```
+
+## Step 3: Summarise by order type
+
+```{r order-type-summary}
+order_type_summary <- orders %>%
+  group_by(order_type) %>%
+  summarise(
+    n_orders          = n(),
+    total_revenue     = sum(price_cad),
+    avg_price         = mean(price_cad),
+    avg_lead_time     = mean(lead_time_days),
+    avg_price_per_srv = mean(price_per_serve),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(total_revenue))
+
+knitr::kable(order_type_summary, digits = 2,
+             caption = "Orders and revenue by order type")
+```
+
+## Step 4: Summarise by month
+
+```{r monthly-summary}
+monthly_summary <- orders %>%
+  group_by(order_month) %>%
+  summarise(
+    n_orders      = n(),
+    total_revenue = sum(price_cad),
+    .groups = "drop"
+  )
+
+knitr::kable(monthly_summary, caption = "Orders and revenue by month")
+```
+
+# Outputs
+
+## Summary tables
+
+| Object               | Description                                                     |
+|----------------------|-----------------------------------------------------------------|
+| `order_type_summary` | Order count, total and average revenue, lead time, price/serving per order type |
+| `monthly_summary`    | Order count and total revenue per month                         |
+
+## Revenue chart
+
+The script saves `outputs/revenue_by_order_type.png`. The chart is also shown below.
+
+```{r revenue-plot, fig.width = 7, fig.height = 4}
+revenue_plot <- ggplot(order_type_summary,
+                       aes(x = reorder(order_type, total_revenue),
+                           y = total_revenue)) +
+  geom_col(fill = "#C97B84") +
+  coord_flip() +
+  labs(
+    title = "Toronto Cakes: Revenue by Order Type (synthetic data)",
+    x     = "Order type",
+    y     = "Total revenue (CAD)"
+  ) +
+  theme_minimal()
+
+revenue_plot
+```
+
+# How to Run
+
+1. Open the project in RStudio or Posit Cloud.
+2. Install the packages once:
+
+```{r install, eval = FALSE}
+install.packages(c("readr", "dplyr", "lubridate", "ggplot2", "rmarkdown"))
+```
+
+3. Run the script from the project root:
+
+```{r run-script, eval = FALSE}
+source("scripts/order_summary.R")
+```
+
+4. Or click **Knit** on this file to produce `order_summary.html`.
+
+# Notes and Limitations
+
+- The dataset is small (20 rows) and synthetic, so results show the workflow rather than real business trends.
+- Lead time is measured in calendar days and does not account for holidays or baking capacity.
+- Price per serving is a simple average per order and is not weighted by order size.
