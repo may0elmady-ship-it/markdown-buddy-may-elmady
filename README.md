@@ -47,7 +47,7 @@ markdown-buddy-may-elmady/
 │   └── order_summary.Rmd           # R Markdown documentation of the script
 └── docs/
     ├── Appendix_AI_Prompts.md      # All AI prompts and key responses
-    └── Verification_CrossCheck.xlsx # SUMIF/COUNTIF cross-check of R totals
+    └── Verification_CrossCheck.csv  # SUMIF/COUNTIF cross-check (open in Google Sheets)
 ```
 
 ## Dataset
@@ -165,4 +165,4 @@ The full prompts and key responses are in [`docs/Appendix_AI_Prompts.md`](docs/A
 - Added `text` as the language on the folder-tree block so GitHub does not try to highlight it.
 - Indented the code blocks inside the numbered Installation list so the numbering does not restart.
 - Removed a suggested "Contributing" section because this is a single-author course project.
-- Ran the script myself and checked the summary totals against a SUMIF/COUNTIF/AVERAGEIF cross-check (`docs/Verification_CrossCheck.xlsx`); all totals match.
+- Ran the script myself and checked the summary totals against a SUMIF/COUNTIF/AVERAGEIF cross-check (`docs/Verification_CrossCheck.csv`); all totals match.
