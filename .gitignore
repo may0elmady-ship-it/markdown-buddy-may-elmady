@@ -1,0 +1,9 @@
+# R / RStudio
+.Rproj.user/
+.Rhistory
+.RData
+
+# Generated files
+outputs/
+scripts/order_summary.html
+scripts/order_summary_files/
