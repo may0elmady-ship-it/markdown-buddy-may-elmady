@@ -65,7 +65,7 @@ Short one-line description.
 ## Author
 ```
 
-**What I did:** Used this as my intended README outline. Added a Table of Contents and a Documentation link to the `.Rmd` file.
+**What I did:** Saved this as my intended README outline in [`README_Outline.md`](README_Outline.md). Added a Table of Contents and a Documentation link to the `.Rmd` file.
 
 ### Prompt 1.3 (Critique / Validation)
 
