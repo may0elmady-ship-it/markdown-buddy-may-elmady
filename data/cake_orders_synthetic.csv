@@ -1,0 +1,21 @@
+order_id,order_date,pickup_date,order_type,cake_flavour,tiers,servings,price_cad,channel
+TC001,2026-01-04,2026-01-10,Birthday,Red Velvet,1,20,95,Instagram DM
+TC002,2026-01-09,2026-01-17,Baby Shower,Vanilla Bean,2,40,210,Instagram DM
+TC003,2026-01-15,2026-02-14,Wedding,Lemon Raspberry,3,120,780,Instagram DM
+TC004,2026-01-22,2026-01-25,Birthday,Chocolate Fudge,1,15,80,Instagram Story Reply
+TC005,2026-02-02,2026-02-08,Birthday,Pistachio Rose,2,35,185,Instagram DM
+TC006,2026-02-06,2026-02-13,Other,Chocolate Fudge,1,25,120,Website Form
+TC007,2026-02-11,2026-02-21,Baby Shower,Strawberry Shortcake,2,45,230,Instagram DM
+TC008,2026-02-19,2026-03-28,Wedding,Vanilla Bean,4,180,1150,Instagram DM
+TC009,2026-03-01,2026-03-07,Birthday,Cookies and Cream,1,20,90,Instagram Story Reply
+TC010,2026-03-05,2026-03-14,Birthday,Red Velvet,2,40,200,Instagram DM
+TC011,2026-03-12,2026-03-21,Baby Shower,Lemon Raspberry,1,30,150,Website Form
+TC012,2026-03-18,2026-04-25,Wedding,Pistachio Rose,3,140,890,Instagram DM
+TC013,2026-04-02,2026-04-05,Other,Carrot Cake,1,20,95,Instagram DM
+TC014,2026-04-07,2026-04-12,Birthday,Chocolate Fudge,2,50,240,Instagram DM
+TC015,2026-04-14,2026-04-26,Baby Shower,Vanilla Bean,2,40,215,Instagram Story Reply
+TC016,2026-04-20,2026-05-30,Wedding,Red Velvet,3,110,760,Website Form
+TC017,2026-05-03,2026-05-09,Birthday,Strawberry Shortcake,1,18,85,Instagram DM
+TC018,2026-05-08,2026-05-10,Other,Chocolate Fudge,1,25,125,Instagram DM
+TC019,2026-05-15,2026-05-23,Baby Shower,Cookies and Cream,2,45,225,Instagram DM
+TC020,2026-05-22,2026-06-20,Wedding,Lemon Raspberry,4,200,1290,Instagram DM
