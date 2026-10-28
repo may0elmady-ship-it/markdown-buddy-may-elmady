@@ -1,4 +1,4 @@
-> **AI Assistance Declaration:** I used Claude (Anthropic, Opus 5.5, 26 Oct 2026) for README structure ideas, Markdown and R Markdown formatting suggestions, and wording. Prompts used: see [`docs/Appendix_AI_Prompts.md`](docs/Appendix_AI_Prompts.md). I verified outputs using GitHub's Markdown preview, a comparison with the tidyverse `dplyr` README, knitting the `.Rmd` in RStudio/Posit Cloud, and a Google Sheets cross-check of the summary totals. All final calculations are done by myself. I am responsible for the accuracy and originality of this work.
+> **AI Assistance Declaration:** I used Claude (Anthropic, Opus 5.5, 26–27 Oct 2026) to help draft and format my README, R Markdown file and the wording of this reflection, and to suggest structure. Prompts used: see [`docs/Appendix_AI_Prompts.md`](docs/Appendix_AI_Prompts.md). I verified outputs using GitHub's Markdown preview, a comparison with the tidyverse `dplyr` README, knitting the `.Rmd` file, and a SUMIF/COUNTIF/AVERAGEIF cross-check of the summary totals in Google Sheets. All final calculations are done by myself. I am responsible for the accuracy and originality of this work.
 
 # Reflection: AI-Assisted Documentation
 
@@ -8,37 +8,38 @@
 
 ## 1. How did the AI tool support your documentation process?
 
-The AI was most useful at the start, when I had a working R script but no clear idea how to present it. My first prompt gave me a full list of README sections in a few seconds, and the refinement prompt turned that list into a clean Markdown outline I could build on. It saved me from staring at an empty file.
+Before this assignment I never had a GitHub account. I made one for this project, so for me the hardest part was not the R code. It was knowing what a "good" README even looks like. The AI gave me a list of sections in a few seconds, and then the refinement prompt turned it into a clean outline with `##` headers. I used that outline like a recipe card: I knew what goes first and what comes after.
 
-It was also helpful as a syntax checker. When I asked it to review my README, it caught two problems I had missed: the code blocks inside my numbered Installation list were not indented, so GitHub restarted the numbering, and my folder-tree block had no language tag. For the `.Rmd` file, it reminded me to add a hidden `setup` chunk, set the root directory so the data path works when knitting, and use `eval = FALSE` on the install and `source()` chunks. These are small details, but they make the difference between a file that renders properly and one that breaks.
+My project is about my own cake business, Toronto Cakes. Most of my orders come to me as Instagram DMs, and I usually track them in my head or in my notes app. The AI did not know any of this. Its first draft was about a general "sales analysis". I had to tell it the real questions I have as a business owner: which cakes bring the most money, how early customers book a wedding cake compared to a birthday cake, and which months are busy. After I gave it this context, the README started to sound like my project and not like a template.
 
-The content itself, though, had to come from me. The AI's first draft described a generic "sales analysis" project. I rewrote the Overview around the three questions I actually ask about my own cake business: which order types earn the most, how far ahead customers book, and how orders change by month.
+The AI was also useful as a second pair of eyes for formatting. It told me that the code blocks inside my numbered Installation list must be indented, or GitHub will restart the numbers from 1. It also reminded me to add `eval = FALSE` to the `install.packages()` chunk in the `.Rmd`, so knitting does not reinstall everything every time. I would not have known these small rules by myself.
 
 ## 2. What were the strengths and weaknesses of using AI for this task?
 
 **Strengths**
 
-- **Speed:** a complete, well-organised first draft in minutes.
-- **Consistency:** it applied the same header levels and code-block style across the whole file.
-- **Iteration:** each follow-up prompt improved one specific thing, so I could refine step by step instead of starting over.
-- **Best-practice reminders:** it knew R Markdown conventions, such as named chunks and `knitr::kable()` for tables, that I would have had to look up.
+- **It saved time.** As a mom of four with a business and school at the same time, getting a first draft fast is a big help. I could spend my time checking and fixing instead of starting from an empty page.
+- **It explained the "why".** When I asked about R Markdown best practices, it did not only fix the file. It explained why the `setup` chunk is hidden and why `root.dir` matters when the file is inside the `scripts/` folder.
+- **Step-by-step improvement.** The seed, refinement and critique prompts worked like tasting a cake batter: each round I fixed one thing and the result got better.
 
 **Weaknesses**
 
-- **Generic content:** without my edits, the README could describe any project. It did not know my data or my business.
-- **Extra sections:** it added a "Contributing" section that does not make sense for a single-author course project, so I removed it.
-- **No real verification:** the AI can say the Markdown "looks correct", but it cannot see how GitHub or RStudio actually renders it. Only previewing and knitting it myself proved it worked.
-- **Risk of trusting numbers:** if I had asked it to calculate totals, it could have produced figures that look right but are wrong. I kept all calculations in R and checked them in Google Sheets.
+- **It does not know my data.** It can write a nice sentence like "revenue increased", but it cannot know if that is true. Only my R output and my own check can tell me that.
+- **It cannot see the real result.** The AI said the Markdown "looks correct", but I only trusted it after I saw the README on GitHub and the knitted `.Rmd`.
+- **Small details can break things.** When I prepared my cross-check file for Google Sheets, I noticed that a month value like `2026-01` can be changed into a date automatically, and then `COUNTIF` does not match. I changed the labels to `2026_01` so they stay as text. This kind of problem only shows up when you actually test the file, not when you read AI text.
+- **It adds things I do not need.** It suggested a "Contributing" section, but this is a one-person school project, so I removed it.
 
 ## 3. How did you use AI ethically, and how did you verify its output?
 
-I followed three rules. First, **privacy:** I only shared my synthetic dataset and a written summary of the project. I did not upload any real customer names, messages or prices from my Instagram orders. Second, **transparency:** I added the AI Assistance Declaration to the top of every file, listed every prompt in `docs/Appendix_AI_Prompts.md`, and added a disclosure section at the bottom of the README explaining what I changed. Third, **responsibility:** the AI was a design assistant only. It suggested structure and wording, but it did not compute anything.
+My customers trust me with their names, phone numbers and party details in my DMs, so privacy is very important to me. I did **not** give the AI any real customer information. My dataset is 20 synthetic orders that I created with realistic cake types, prices and dates, and the README clearly says the data is synthetic.
 
-To verify the output, I:
+I was also open about my AI use. Every file starts with the AI Assistance Declaration, the README ends with an AI Assistance Disclosure section, and all my prompts and the key responses are in `docs/Appendix_AI_Prompts.md`. I did not let the AI do the math. The numbers come from my R script, and I used the AI only for structure, formatting and wording.
 
-1. Compared the AI's README structure with the tidyverse `dplyr` README and added a badge row, table of contents and documentation link to match professional practice.
-2. Previewed the README on GitHub to confirm headers, tables, lists and code blocks rendered correctly.
-3. Knitted the `.Rmd` file in RStudio/Posit Cloud and checked every section, table and the chart.
-4. Ran the R script myself, then cross-checked the totals by order type in Google Sheets using `SUMIF`, `COUNTIF` and `AVERAGEIF`, and spot-checked the Wedding orders by hand.
+To verify, I followed the verification pattern from the course:
 
-This process showed me that AI is a strong starting point for documentation, but the final quality depends on the person checking it. I would use the same workflow again: let AI draft the structure, then make the content my own and verify everything before publishing.
+1. **Primary calculation:** I ran `order_summary.R` to get revenue, order counts and lead times by order type and by month.
+2. **Independent cross-check:** I opened `docs/Verification_CrossCheck.csv` in Google Sheets, where `SUMIF`, `COUNTIF` and `AVERAGEIF` formulas calculate the same totals. Everything matched: 20 orders and $7,215 in total, with Wedding cakes at $4,870.
+3. **Spot-check:** I added the five Wedding orders by hand from the CSV (780 + 1,150 + 890 + 760 + 1,290 = 4,870) to be sure.
+4. **Preview:** I checked the README on GitHub and knitted the `.Rmd` to make sure headers, tables, code chunks and the chart all show correctly.
+
+What I learned is that AI is a good assistant, like a helper in the kitchen, but I am still the baker. I decide what goes in, I taste it, and I am the one who puts my name on it.

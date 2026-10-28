@@ -1,4 +1,4 @@
-> **AI Assistance Declaration:** I used Claude (Anthropic, Opus 5.5, 26 Oct 2026) for README structure ideas, Markdown formatting and wording suggestions. Prompts used: see [`docs/Appendix_AI_Prompts.md`](docs/Appendix_AI_Prompts.md). I verified outputs using GitHub's Markdown preview, a comparison with the tidyverse `dplyr` README, and by running the R script myself in RStudio/Posit Cloud. All final calculations are done by myself. I am responsible for the accuracy and originality of this work.
+> **AI Assistance Declaration:** I used Claude (Anthropic, Opus 5.5, 26–27 Oct 2026) to help draft and format this README, the R Markdown file and the reflection wording, and to suggest structure. Prompts used: see [`docs/Appendix_AI_Prompts.md`](docs/Appendix_AI_Prompts.md). I verified outputs using GitHub's Markdown preview, a comparison with the tidyverse `dplyr` README, and by running the R script myself in RStudio/Posit Cloud. All final calculations are done by myself. I am responsible for the accuracy and originality of this work.
 
 # Markdown Buddy: Toronto Cakes Order Analysis
 
@@ -46,6 +46,7 @@ markdown-buddy-may-elmady/
 │   ├── order_summary.R             # Main analysis script
 │   └── order_summary.Rmd           # R Markdown documentation of the script
 └── docs/
+    ├── README_Outline.md           # Step 1 README section outline
     ├── Appendix_AI_Prompts.md      # All AI prompts and key responses
     └── Verification_CrossCheck.csv  # SUMIF/COUNTIF cross-check (open in Google Sheets)
 ```
@@ -142,7 +143,7 @@ BDA400 Data Science Tools and Techniques, Assignment 1
 
 ## AI Assistance Disclosure
 
-**AI tool used:** Claude (Anthropic), model Opus 5.5, used on 26 October 2026.
+**AI tool used:** Claude (Anthropic), model Opus 5.5, used on 26–27 October 2026 to help draft and format the README, the R Markdown file and the reflection wording.
 
 **Main prompts given:**
 
