@@ -1,0 +1,21 @@
+order_id,order_date,pickup_date,order_type,cake_flavour,tiers,servings,price_cad,channel,lead_time_days,price_per_serve,order_month,,order_type,n_orders,total_revenue,avg_price,avg_lead_time,avg_price_per_srv
+TC001,2026-01-04,2026-01-10,Birthday,Red Velvet,1,20,95,Instagram DM,=C2-B2,=H2/G2,2026_01,,Wedding,"=COUNTIF($D$2:$D$21,N2)","=SUMIF($D$2:$D$21,N2,$H$2:$H$21)","=AVERAGEIF($D$2:$D$21,N2,$H$2:$H$21)","=AVERAGEIF($D$2:$D$21,N2,$J$2:$J$21)","=AVERAGEIF($D$2:$D$21,N2,$K$2:$K$21)"
+TC002,2026-01-09,2026-01-17,Baby Shower,Vanilla Bean,2,40,210,Instagram DM,=C3-B3,=H3/G3,2026_01,,Baby Shower,"=COUNTIF($D$2:$D$21,N3)","=SUMIF($D$2:$D$21,N3,$H$2:$H$21)","=AVERAGEIF($D$2:$D$21,N3,$H$2:$H$21)","=AVERAGEIF($D$2:$D$21,N3,$J$2:$J$21)","=AVERAGEIF($D$2:$D$21,N3,$K$2:$K$21)"
+TC003,2026-01-15,2026-02-14,Wedding,Lemon Raspberry,3,120,780,Instagram DM,=C4-B4,=H4/G4,2026_01,,Birthday,"=COUNTIF($D$2:$D$21,N4)","=SUMIF($D$2:$D$21,N4,$H$2:$H$21)","=AVERAGEIF($D$2:$D$21,N4,$H$2:$H$21)","=AVERAGEIF($D$2:$D$21,N4,$J$2:$J$21)","=AVERAGEIF($D$2:$D$21,N4,$K$2:$K$21)"
+TC004,2026-01-22,2026-01-25,Birthday,Chocolate Fudge,1,15,80,Instagram Story Reply,=C5-B5,=H5/G5,2026_01,,Other,"=COUNTIF($D$2:$D$21,N5)","=SUMIF($D$2:$D$21,N5,$H$2:$H$21)","=AVERAGEIF($D$2:$D$21,N5,$H$2:$H$21)","=AVERAGEIF($D$2:$D$21,N5,$J$2:$J$21)","=AVERAGEIF($D$2:$D$21,N5,$K$2:$K$21)"
+TC005,2026-02-02,2026-02-08,Birthday,Pistachio Rose,2,35,185,Instagram DM,=C6-B6,=H6/G6,2026_02,,TOTAL,=SUM(O2:O5),=SUM(P2:P5),,,
+TC006,2026-02-06,2026-02-13,Other,Chocolate Fudge,1,25,120,Website Form,=C7-B7,=H7/G7,2026_02,,,,,,,
+TC007,2026-02-11,2026-02-21,Baby Shower,Strawberry Shortcake,2,45,230,Instagram DM,=C8-B8,=H8/G8,2026_02,,order_month,n_orders,total_revenue,,,
+TC008,2026-02-19,2026-03-28,Wedding,Vanilla Bean,4,180,1150,Instagram DM,=C9-B9,=H9/G9,2026_02,,2026_01,"=COUNTIF($L$2:$L$21,N9)","=SUMIF($L$2:$L$21,N9,$H$2:$H$21)",,,
+TC009,2026-03-01,2026-03-07,Birthday,Cookies and Cream,1,20,90,Instagram Story Reply,=C10-B10,=H10/G10,2026_03,,2026_02,"=COUNTIF($L$2:$L$21,N10)","=SUMIF($L$2:$L$21,N10,$H$2:$H$21)",,,
+TC010,2026-03-05,2026-03-14,Birthday,Red Velvet,2,40,200,Instagram DM,=C11-B11,=H11/G11,2026_03,,2026_03,"=COUNTIF($L$2:$L$21,N11)","=SUMIF($L$2:$L$21,N11,$H$2:$H$21)",,,
+TC011,2026-03-12,2026-03-21,Baby Shower,Lemon Raspberry,1,30,150,Website Form,=C12-B12,=H12/G12,2026_03,,2026_04,"=COUNTIF($L$2:$L$21,N12)","=SUMIF($L$2:$L$21,N12,$H$2:$H$21)",,,
+TC012,2026-03-18,2026-04-25,Wedding,Pistachio Rose,3,140,890,Instagram DM,=C13-B13,=H13/G13,2026_03,,2026_05,"=COUNTIF($L$2:$L$21,N13)","=SUMIF($L$2:$L$21,N13,$H$2:$H$21)",,,
+TC013,2026-04-02,2026-04-05,Other,Carrot Cake,1,20,95,Instagram DM,=C14-B14,=H14/G14,2026_04,,TOTAL,=SUM(O9:O13),=SUM(P9:P13),,,
+TC014,2026-04-07,2026-04-12,Birthday,Chocolate Fudge,2,50,240,Instagram DM,=C15-B15,=H15/G15,2026_04,,,,,,,
+TC015,2026-04-14,2026-04-26,Baby Shower,Vanilla Bean,2,40,215,Instagram Story Reply,=C16-B16,=H16/G16,2026_04,,,,,,,
+TC016,2026-04-20,2026-05-30,Wedding,Red Velvet,3,110,760,Website Form,=C17-B17,=H17/G17,2026_04,,,,,,,
+TC017,2026-05-03,2026-05-09,Birthday,Strawberry Shortcake,1,18,85,Instagram DM,=C18-B18,=H18/G18,2026_05,,,,,,,
+TC018,2026-05-08,2026-05-10,Other,Chocolate Fudge,1,25,125,Instagram DM,=C19-B19,=H19/G19,2026_05,,,,,,,
+TC019,2026-05-15,2026-05-23,Baby Shower,Cookies and Cream,2,45,225,Instagram DM,=C20-B20,=H20/G20,2026_05,,,,,,,
+TC020,2026-05-22,2026-06-20,Wedding,Lemon Raspberry,4,200,1290,Instagram DM,=C21-B21,=H21/G21,2026_05,,,,,,,
